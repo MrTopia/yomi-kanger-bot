@@ -3,7 +3,7 @@ from telegram import Update, InputSticker, InputFile
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from PIL import Image
 import tempfile
-from moviepy import editor as mp
+import moviepy.editor as mp
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
