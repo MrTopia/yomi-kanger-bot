@@ -1,9 +1,14 @@
+from PIL import Image
+
+if hasattr(Image, 'Resampling'):
+    Image.ANTIALIAS = Image.Resampling.LANCZOS
+
+import moviepy.editor as mp
 import os
 from telegram import Update, InputSticker, InputFile
 from telegram.ext import ApplicationBuilder, CommandHandler, MessageHandler, filters, ContextTypes
 from PIL import Image
 import tempfile
-import moviepy.editor as mp
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
