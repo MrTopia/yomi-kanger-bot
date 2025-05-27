@@ -55,12 +55,12 @@ async def send_to_sticker_set(update, context, path, animated=False):
 
     try:
         if animated:
-            input_sticker = InputSticker(sticker=InputFile(path), emoji_list=[emoji])
+            input_sticker = InputSticker(sticker=path, emoji_list=[emoji])
             await context.bot.create_new_sticker_set(user_id=user.id, name=pack_name, title=f"{user.first_name}'s Pack", stickers=[input_sticker], sticker_format='video')
         else:
-            await context.bot.add_sticker_to_set(user_id=user.id, name=pack_name, sticker=InputSticker(sticker=InputFile(path), emoji_list=[emoji]))
+            await context.bot.add_sticker_to_set(user_id=user.id, name=pack_name, sticker=InputSticker(sticker=path, emoji_list=[emoji]))
     except:
-        input_sticker = InputSticker(sticker=InputFile(path), emoji_list=[emoji])
+        input_sticker = InputSticker(sticker=path, emoji_list=[emoji])
         await context.bot.create_new_sticker_set(user_id=user.id, name=pack_name, title=f"{user.first_name}'s Pack", stickers=[input_sticker], sticker_format='static')
 
     await update.message.reply_text(f"Sticker kanged to [this pack](https://t.me/addstickers/{pack_name})", parse_mode="Markdown")
